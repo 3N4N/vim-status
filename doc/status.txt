@@ -1,0 +1,34 @@
+Version: 0.0
+Author: enan (https://github.com/enanajmain)
+License: None
+Repository: https://github.com/enanajmain/status
+
+CONTENTS		*status-contents*
+
+Introduction		|status-introduction|
+Function		|status-function|
+
+==============================================================================
+INTRODUCTION		*status-introduction*
+
+*status.vim* provides some functions to aid users to create their
+own custom statusline.
+
+==============================================================================
+FUNCTION*		*status-function*
+
+	status#readOnly()	*status#readOnly()*
+		Returns locked sign if the file is readonly or non-modifiable
+
+	status#modified()
+		Returns a plus sign within a brackets if a file is modified
+
+	status#gitInfo()	*status#gitInfo()*
+		Depends on *vim-gitbranch* by itchyny
+		Returns gitbranch name with a git sign
+
+	status#filename()	*status#filename()*
+		Returns the filename
+
+	status#fileType()	*status#filetype()*
+		Returns the filetype
