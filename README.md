@@ -34,3 +34,9 @@ My own vimrc looks something like this:
     hi StatusLineNC guibg=#44475a guifg=gray
 
 If you have any useful functions for customizing vim statusline, send me a pull request and I'll merge them :)
+
+## Contributors
+ Thankyou for the help to make the plugin suck less.
+ Check the [documentation](doc/status.txt) to check the contributions
+
+ 1. [adscriven](https://github.com/adscriven)

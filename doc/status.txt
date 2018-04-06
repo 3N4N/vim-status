@@ -32,3 +32,7 @@ FUNCTION*		*status-function*
 
 	status#fileType()	*status#filetype()*
 		Returns the filetype
+
+	status#fage()		*status#fage()*
+		Provided by https://github.com/adscriven
+		Returns the age of the file
