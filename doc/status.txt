@@ -11,21 +11,21 @@ Function		|status-function|
 ==============================================================================
 INTRODUCTION		*status-introduction*
 
-*status.vim* provides some functions to aid users to create their
+*vim-status* provides some functions to aid users to create their
 own custom statusline.
 
 ==============================================================================
 FUNCTION*		*status-function*
 
-	status#readOnly()	*status#readOnly()*
-		Returns locked sign if the file is readonly or non-modifiable
+	status#readOnly(arg)	*status#readOnly()*
+		Returns a sign defined by argument 'arg' if the file is readonly or non-modifiable
 
-	status#modified()
-		Returns a plus sign within a brackets if a file is modified
+	status#modified(arg)
+		Returns a sign defined by argument 'arg' if a file is modified
 
-	status#gitInfo()	*status#gitInfo()*
+	status#gitInfo(arg)	*status#gitInfo()*
 		Depends on *vim-gitbranch* by itchyny
-		Returns gitbranch name with a git sign
+		Returns gitbranch name with a sign defined by argument 'arg'
 
 	status#filename()	*status#filename()*
 		Returns the filename

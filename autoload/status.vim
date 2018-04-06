@@ -1,24 +1,23 @@
-function! status#readOnly() abort
+function! status#readOnly(arg) abort
   if (&readonly || !&modifiable)
-    return ' '
+    return '  '.a:arg
   else
     return ''
   endif
 endfunction
 
-function! status#modified() abort
+function! status#modified(arg) abort
   if &modified
-    return '[+]'
+    return a:arg
   else
     return ''
   endif
 endfunction
 
-function! status#gitInfo() abort
+function! status#gitInfo(arg) abort
   let git = gitbranch#name()
   if git != ''
-    "return '  '.gitbranch#name()
-    return '  '.gitbranch#name()
+    return '  '. a:arg.' '.gitbranch#name()
   else
     return ''
   endif
@@ -26,9 +25,7 @@ endfunction
 
 function! status#filename() abort
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let readonly = status#readOnly()
-  let gitinfo = status#gitInfo()
-  return filename . readonly . gitinfo
+  return filename
 endfunction
 
 function! status#filetype() abort
