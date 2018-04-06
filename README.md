@@ -19,6 +19,7 @@ use vim-plug :
 See the [documentation](doc/status.txt) for the plugin to see the functions you can use.
 
 My own vimrc looks something like this:
+
     set laststatus=2
     set statusline=\ %{status#filename()}
     set statusline+=%{status#readOnly('')}
@@ -32,3 +33,4 @@ My own vimrc looks something like this:
     hi StatusLine guibg=gray guifg=black
     hi StatusLineNC guibg=#44475a guifg=gray
 
+If you have any useful functions for customizing vim statusline, send me a pull request and I'll merge them :)
