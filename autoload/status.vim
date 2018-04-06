@@ -32,3 +32,34 @@ function! status#filetype() abort
   return &filetype
 endfunction
 
+" This function is provided by https://github.com/adscriven
+fun! Age(t) abort
+    let u = localtime() - a:t
+    let v = u
+    " Approx. after weeks, but good enough for me.
+    let divisors = [60.0, 60.0, 24.0, 7.0, 4.345238, 12, 1]
+    let precisions = [0, 0, 0, 1, 1, 1, 1, 1]
+    " secs, mins, hours, days, weeks, months, years
+    " s appears twice to make zero seconds work
+    let unit = 'ssmhdwMy'
+    let n = 0
+    while u >= 1 && n < len(divisors)
+        let v = u
+        let u = u/divisors[n]
+        let n += 1
+    endwhile
+    return printf('%.*f%s', precisions[n], v, unit[n])
+endfun
+
+" Cache the result of getftime() at pertinent points in time,
+" otherwise you'll hurt performance; and you'll totally destroy
+" it for networked files.
+augroup vimrc_ftime
+au!
+au bufread,bufwritepost * let b:ftime = getftime(expand('%:p'))
+augroup end
+
+" Requires Age(t) and provided by https://github.com/adscriven
+fun! Fage() abort
+    return exists('b:ftime') ? '(' . Age(b:ftime) . ')' : ''
+endfun
