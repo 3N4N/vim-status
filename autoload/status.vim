@@ -61,5 +61,5 @@ augroup end
 
 " Requires Age(t) and provided by https://github.com/adscriven
 fun! status#fage() abort
-    return exists('b:ftime') ? '(' . Age(b:ftime) . ')' : ''
+    return exists('b:ftime') ? '(' . status#age(b:ftime) . ')' : ''
 endfun
