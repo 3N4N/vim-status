@@ -33,7 +33,7 @@ function! status#filetype() abort
 endfunction
 
 " This function is provided by https://github.com/adscriven
-fun! Age(t) abort
+fun! status#age(t) abort
     let u = localtime() - a:t
     let v = u
     " Approx. after weeks, but good enough for me.
@@ -60,6 +60,6 @@ au bufread,bufwritepost * let b:ftime = getftime(expand('%:p'))
 augroup end
 
 " Requires Age(t) and provided by https://github.com/adscriven
-fun! Fage() abort
+fun! status#fage() abort
     return exists('b:ftime') ? '(' . Age(b:ftime) . ')' : ''
 endfun
