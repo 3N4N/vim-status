@@ -5,7 +5,7 @@ This is for my personal plugin to store all the functions for my custom statusli
 
 ## Dependency
 
-[vim-gitbranch](https://github.com/itchyny/vim-gitbranch)
+None!
 
 ## Installation
 
