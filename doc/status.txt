@@ -7,6 +7,7 @@ CONTENTS		*status-contents*
 
 Introduction		|status-introduction|
 Function		|status-function|
+Uses		|status-uses|
 
 ==============================================================================
 INTRODUCTION		*status-introduction*
@@ -15,7 +16,7 @@ INTRODUCTION		*status-introduction*
 own custom statusline.
 
 ==============================================================================
-FUNCTION*		*status-function*
+FUNCTION		*status-function*
 
 	status#readOnly(arg)	*status#readOnly()*
 		Returns a sign defined by argument 'arg' if the file is readonly or non-modifiable
@@ -32,7 +33,23 @@ FUNCTION*		*status-function*
 
 	status#fileType()	*status#filetype()*
 		Returns the filetype
+	status#gitbranch(arg)	*status#gitbranch()*
+		Returns the current git branch name with arg as sign before it
 
 	status#fage()		*status#fage()*
 		Provided by https://github.com/adscriven
 		Returns the age of the file
+
+==============================================================================
+USES		*status-uses*
+Here is my statusline
+
+		set laststatus=2
+		set statusline=\ %{status#filename()}
+		set statusline+=%{status#readOnly('')}
+		set statusline+=%{status#gitbranch('')}
+		set statusline+=\ %{status#modified('[+]')}
+		set statusline+=%=
+		set statusline+=%-14.(%l:%c%V%)
+		set statusline+=%{status#filetype()}
+		set statusline+=\ %5p%%\ 

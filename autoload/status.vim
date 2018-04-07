@@ -32,6 +32,10 @@ function! status#filetype() abort
   return &filetype
 endfunction
 
+function! status#gitbranch(arg)
+  return a:arg.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
 " This function is provided by https://github.com/adscriven
 fun! status#age(t) abort
     let u = localtime() - a:t
