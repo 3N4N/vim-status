@@ -11,7 +11,6 @@ None!
 
 use vim-plug :
 
-    Plug 'itchyny/vim-gitbranch'
     Plug 'enanajmain/vim-status'
 
 ## Uses
