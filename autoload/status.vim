@@ -33,7 +33,7 @@ function! status#filetype() abort
 endfunction
 
 function! status#gitbranch(arg)
-  return ''.a:arg.''.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  return ' '.a:arg.' '.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
 
 " This function is provided by https://github.com/adscriven
