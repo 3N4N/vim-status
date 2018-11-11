@@ -1,39 +1,39 @@
 function! status#readOnly(arg) abort
-  if (&readonly || !&modifiable)
-    return '  '.a:arg
-  else
-    return ''
-  endif
+    if (&readonly || !&modifiable)
+        return '  '.a:arg
+    else
+        return ''
+    endif
 endfunction
 
 function! status#modified(arg) abort
-  if &modified
-    return a:arg
-  else
-    return ''
-  endif
+    if &modified
+        return a:arg
+    else
+        return ''
+    endif
 endfunction
 
 function! status#gitInfo(arg) abort
-  let git = gitbranch#name()
-  if git != ''
-    return '  '. a:arg.' '.gitbranch#name()
-  else
-    return ''
-  endif
+    let git = gitbranch#name()
+    if git != ''
+        return '  '. a:arg.' '.gitbranch#name()
+    else
+        return ''
+    endif
 endfunction
 
 function! status#filename() abort
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  return filename
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    return filename
 endfunction
 
 function! status#filetype() abort
-  return &filetype
+    return &filetype
 endfunction
 
 function! status#gitbranch(arg)
-  return ' '.a:arg.' '.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+    return ' '.a:arg.' '.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
 
 " This function is provided by https://github.com/adscriven
@@ -59,8 +59,8 @@ endfun
 " otherwise you'll hurt performance; and you'll totally destroy
 " it for networked files.
 augroup vimrc_ftime
-au!
-au bufread,bufwritepost * let b:ftime = getftime(expand('%:p'))
+    au!
+    au bufread,bufwritepost * let b:ftime = getftime(expand('%:p'))
 augroup end
 
 " Requires Age(t) and provided by https://github.com/adscriven
