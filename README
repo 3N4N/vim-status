@@ -1,0 +1,40 @@
+vim-status
+==========
+A set of functions to build custom statusline for vim or neovim.
+
+
+Installation
+------------
+Enter the following commands to use the new package feature:
+
+For vim:
+
+	mkdir -p ~/.vim/pack/enanajmain
+	cd ~/.vim/pack/enanajmain
+	git clone https://github.com/enanajmain/vim-status.git
+	cd -
+
+For neovim:
+
+	mkdir -p ~/.local/share/nvim/site/pack/enanajmain
+	cd ~/.local/share/nvim/site/pack/enanajmain
+	git clone https://github.com/enanajmain/vim-status.git
+	cd -
+
+Or use your favorite plugin manager.
+
+
+Use vim-status
+--------------
+Check out the documentations, `:h status.txt`, for available functions. My own
+statusline looks something like this:
+
+	set laststatus=2
+	set statusline=%{status#filename()}
+	set statusline+=%{status#readOnly('')}
+	set statusline+=%{status#gitbranch('')}
+	set statusline+=\ %{status#modified('[+]')}
+	set statusline+=%=
+	set statusline+=%-14.(%l:%c%V%)
+	set statusline+=%{status#filetype()}
+	set statusline+=\ %5p%%
